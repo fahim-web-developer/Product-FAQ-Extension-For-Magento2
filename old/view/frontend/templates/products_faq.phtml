@@ -1,0 +1,43 @@
+<?php
+	$product = $block->getCurrentProduct();
+?>
+
+ <span class="asadadadad" style="display:none;">
+ 	<?php var_dump($product->getProductFaq()); ?>
+ </span>
+
+<?php if (!empty($product->getProductFaq())): ?>
+<?php
+	$faq = json_decode($product->getProductFaq());
+ ?>
+
+	<section class="faq" id="faq-common">
+	
+	    <div class="container">
+	        <div class="accordion">
+	        <?php foreach ($faq as $question): ?>
+	            <div class="accordion-item">
+	                <a><?php echo $question->title; ?></a>
+	                <div class="content">
+	                    <?php echo $question->faq; ?>
+	                </div>
+	            </div>
+	        <?php endforeach; ?>
+	        </div>
+	    </div>
+	    <script>
+	        require(['jquery', 'jquery/ui'], function($) {
+	            items = document.querySelectorAll(".accordion a");
+
+	            function toggleAccordion(){
+	                this.classList.toggle('active');
+	                this.nextElementSibling.classList.toggle('active');
+	            }
+
+	            items.forEach(item => item.addEventListener('click', toggleAccordion));
+	        });
+	    </script>
+	</section>
+
+<?php endif; ?>
+ 

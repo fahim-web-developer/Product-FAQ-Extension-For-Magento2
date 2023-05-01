@@ -1,0 +1,25 @@
+<?php $product = $block->getCurrentProduct(); ?>
+<?php if (!empty($product->getCrossProduct())): ?>
+
+<?php $faq = json_decode($product->getCrossProduct()); ?>
+
+<section class="products_pro_tab"> 
+	<div class="block">
+		<div class="block-title">
+	        <h2 class="heading-title block-title">
+	            <span role="heading">Cross-Sell Products</span>
+	        </h2>
+	    </div>
+	</div>
+    <div class="container p-0">
+        <ul class="products_pro_items">
+        <?php foreach ($faq as $question): ?>
+            <li class="products_pro_item">
+                <a href="<?= $this->getUrl($question->cross); ?>"><?= $question->title; ?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+<?php endif; ?>
+ 

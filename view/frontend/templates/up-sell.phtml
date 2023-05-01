@@ -1,0 +1,19 @@
+<?php $product = $block->getCurrentProduct(); ?>
+<?php if (!empty($product->getUpProduct())): ?>
+
+<?php $faq = json_decode($product->getUpProduct()); ?>
+
+<section class="products_pro_tab"> 
+	 
+    <div class="container p-0">
+        <ul class="products_pro_items">
+        <?php foreach ($faq as $question): ?>
+            <li class="products_pro_item">
+                <a href="<?= $this->getUrl($question->up); ?>"><?= $question->title; ?></a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+<?php endif; ?>
+ 

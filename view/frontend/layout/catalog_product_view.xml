@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<!-- <referenceContainer name="content"> -->
+			<!-- <block class="Fahim\ProductFaq\Block\Index" name="products_faq" template="Fahim_ProductFaq::products_faq.phtml" /> -->
+
+			<!-- <block class="Fahim\ProductFaq\Block\Index" name="up-sell" template="Fahim_ProductFaq::up-sell.phtml" /> -->
+
+			<block class="Fahim\ProductFaq\Block\Index" name="cross-sell" template="Fahim_ProductFaq::cross-sell.phtml" />
+		<!-- </referenceContainer> -->
+		<!-- <move element="products_faq" destination="content" after="reviews.tab"/> -->
+		<!-- <move element="up-sell" destination="content" before="product.info.upsell"/> -->
+		<move element="cross-sell" destination="after.product.tab" after="-"/>
+		<!-- <move element="products_faq" destination="content" after="product.info.tabs"/> -->
+
+		<!-- <referenceBlock name="product.info.upsell" remove="true" /> -->
+
+	</body>
+</page>
